@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>北控城市服务集团 · 宣传册 2025</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body {
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(160deg,#0b3d2e 0%,#0f5132 55%,#156a3f 100%);
+    min-height:100vh; color:#fff;
+    display:flex; flex-direction:column; align-items:center;
+    padding:48px 24px 40px;
+  }
+  .logo {
+    width:64px; height:64px; border-radius:16px; background:rgba(255,255,255,.12);
+    display:flex; align-items:center; justify-content:center; font-size:34px;
+    margin-bottom:18px; border:1px solid rgba(255,255,255,.25);
+  }
+  h1 { font-size:22px; letter-spacing:2px; }
+  h2 { font-size:14px; font-weight:400; opacity:.85; margin-top:8px; letter-spacing:1px; }
+  .card {
+    width:100%; max-width:380px; margin-top:34px;
+    background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22);
+    border-radius:20px; padding:30px 24px; text-align:center;
+    backdrop-filter:blur(6px);
+  }
+  .cover { font-size:64px; line-height:1; }
+  .book-title { font-size:18px; font-weight:600; margin-top:14px; letter-spacing:1px; }
+  .book-sub { font-size:12.5px; opacity:.75; margin-top:6px; }
+  .btn {
+    display:block; width:100%; margin-top:22px; padding:15px 0;
+    border-radius:12px; font-size:16.5px; font-weight:600; text-decoration:none;
+    letter-spacing:2px;
+  }
+  .btn-main { background:#ffffff; color:#0f5132; }
+  .btn-main:active { opacity:.85; }
+  .btn-sub {
+    background:transparent; color:#fff;
+    border:1.5px solid rgba(255,255,255,.55); margin-top:14px; padding:13px 0;
+  }
+  .tip {
+    width:100%; max-width:380px; margin-top:26px;
+    background:rgba(0,0,0,.22); border-radius:14px; padding:16px 18px;
+    font-size:13px; line-height:1.75; text-align:left; opacity:.95;
+  }
+  .tip b { color:#ffd76e; }
+  .tip .arrow { color:#ffd76e; font-weight:700; }
+  .foot { margin-top:auto; padding-top:36px; font-size:11px; opacity:.5; letter-spacing:1px; }
+</style>
+</head>
+<body>
+  <div class="logo">🏙️</div>
+  <h1>北控城市服务集团</h1>
+  <h2>让城市更美好 · 让生活更幸福</h2>
+
+  <div class="card">
+    <div class="cover">📖</div>
+    <div class="book-title">集团宣传册 2025</div>
+    <div class="book-sub">PDF · 10.6MB · 手机在线阅读 / 下载</div>
+    <a class="btn btn-main" id="openBtn" href="BKCS-Brochure-2025.pdf">打开宣传册</a>
+    <a class="btn btn-sub" href="javascript:void(0)" id="copyBtn">复制链接</a>
+  </div>
+
+  <div class="tip">
+    <b>微信里使用指引</b><br>
+    1️⃣ 点上方「打开宣传册」可直接在线翻阅<br>
+    2️⃣ 如需下载保存或转发文件：点右上角 <span class="arrow">···</span> →
+    选择 <span class="arrow">在浏览器打开</span>，即可正常下载<br>
+    3️⃣ 也可先「复制链接」发送到电脑浏览器打开
+  </div>
+
+  <div class="foot">北控城市服务集团 · 市场拓展</div>
+
+<script>
+  var LINK = location.origin + location.pathname + 'BKCS-Brochure-2025.pdf';
+  document.getElementById('openBtn').href = LINK;
+  document.getElementById('copyBtn').addEventListener('click', function () {
+    var t = this, done = function () { t.textContent = '✅ 已复制'; setTimeout(function(){ t.textContent = '复制链接'; }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(LINK).then(done).catch(function(){ fallback(); });
+    } else { fallback(); }
+    function fallback() {
+      var i = document.createElement('input');
+      i.value = LINK; document.body.appendChild(i); i.select();
+      try { document.execCommand('copy'); done(); } catch (e) { alert(LINK); }
+      document.body.removeChild(i);
+    }
+  });
+</script>
+</body>
+</html>
